@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var entryField: NSTextField!
-    @IBOutlet weak var inputName: NSTextField!
+    @IBOutlet weak var textField: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,17 +18,13 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
     }
     
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
     var name = "string"
     @IBAction func entryButton(_ sender: Any) {
-        var name = entryField.stringValue
-        inputName.stringValue = "hey"
+        
     }
-
     
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        textField.stringValue = "name"
+    }
 }
 
