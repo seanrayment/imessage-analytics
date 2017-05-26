@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var entryField: NSTextField!
-    @IBOutlet weak var textField: NSTextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,8 @@ class ViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        textField.stringValue = "name"
+        let resultController : ResultController = segue.destinationController as! ResultController
+        resultController.labelText = "hello there"
     }
 }
 

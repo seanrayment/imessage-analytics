@@ -716,15 +716,6 @@
                                     <segue destination="8RC-sJ-n8q" kind="show" id="CbB-E5-Y5T"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-N4-gat">
-                                <rect key="frame" x="221" y="106" width="37" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="2S9-dg-wCa">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -739,14 +730,28 @@
             </objects>
             <point key="canvasLocation" x="378" y="186"/>
         </scene>
-        <!--View Controller-->
+        <!--Result Controller-->
         <scene sceneID="H09-Rk-Xze">
             <objects>
-                <viewController id="8RC-sJ-n8q" customClass="ViewController" customModule="imessage_analytics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8RC-sJ-n8q" customClass="ResultController" customModule="imessage_analytics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="tO6-7C-mhD" userLabel="textResult">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPn-N4-gat">
+                                <rect key="frame" x="52" y="219" width="37" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="2S9-dg-wCa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="RPn-N4-gat" id="kPg-qg-FGk"/>
+                    </connections>
                 </viewController>
                 <customObject id="21n-Mw-9Xy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <textFieldCell controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Text" id="4Sl-Em-lja">
