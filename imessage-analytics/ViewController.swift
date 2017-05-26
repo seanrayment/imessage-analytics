@@ -11,6 +11,10 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var entryField: NSTextField!
     
+    func getEntryField() -> String{
+        return entryField.stringValue
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

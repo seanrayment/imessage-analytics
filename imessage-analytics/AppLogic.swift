@@ -9,10 +9,13 @@
 import Foundation
 
 
-
 class Conversation {
 // A class which will hold all of the details for a specific iMesage conversation with person (person)
 //
 // 
-
+ 
+    var name = ViewController.getEntryField(<#T##ViewController#>)
+    
+    
+    
 }

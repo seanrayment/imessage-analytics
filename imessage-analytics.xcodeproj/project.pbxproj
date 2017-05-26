@@ -56,8 +56,8 @@
 		2F76D8D91ED7808600A2F644 /* imessage-analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DE7B1C231ED86D81008DAACB /* AppLogic.swift */,
 				2F76D8DA1ED7808600A2F644 /* AppDelegate.swift */,
+				DE7B1C231ED86D81008DAACB /* AppLogic.swift */,
 				2F76D8DC1ED7808600A2F644 /* ViewController.swift */,
 				2F3BE2981ED8D9BB00D1D0F8 /* ResultController.swift */,
 				2F76D8DE1ED7808600A2F644 /* Assets.xcassets */,
