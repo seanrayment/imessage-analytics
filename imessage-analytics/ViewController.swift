@@ -18,14 +18,14 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
     }
     
-    var name = "string"
+    
     @IBAction func entryButton(_ sender: Any) {
         
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         let resultController : ResultController = segue.destinationController as! ResultController
-        resultController.labelText = "hello there"
+        resultController.labelText = entryField.stringValue
     }
 }
 
