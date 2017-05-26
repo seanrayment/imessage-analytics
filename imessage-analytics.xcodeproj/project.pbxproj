@@ -289,6 +289,7 @@
 				2F76D8E81ED7808600A2F644 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
