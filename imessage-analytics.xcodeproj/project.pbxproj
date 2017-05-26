@@ -11,6 +11,7 @@
 		2F76D8DD1ED7808600A2F644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F76D8DC1ED7808600A2F644 /* ViewController.swift */; };
 		2F76D8DF1ED7808600A2F644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F76D8DE1ED7808600A2F644 /* Assets.xcassets */; };
 		2F76D8E21ED7808600A2F644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F76D8E01ED7808600A2F644 /* Main.storyboard */; };
+		DE7B1C241ED86D81008DAACB /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7B1C231ED86D81008DAACB /* AppLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		2F76D8DE1ED7808600A2F644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F76D8E11ED7808600A2F644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F76D8E31ED7808600A2F644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE7B1C231ED86D81008DAACB /* AppLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		2F76D8D91ED7808600A2F644 /* imessage-analytics */ = {
 			isa = PBXGroup;
 			children = (
+				DE7B1C231ED86D81008DAACB /* AppLogic.swift */,
 				2F76D8DA1ED7808600A2F644 /* AppDelegate.swift */,
 				2F76D8DC1ED7808600A2F644 /* ViewController.swift */,
 				2F76D8DE1ED7808600A2F644 /* Assets.xcassets */,
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7B1C241ED86D81008DAACB /* AppLogic.swift in Sources */,
 				2F76D8DD1ED7808600A2F644 /* ViewController.swift in Sources */,
 				2F76D8DB1ED7808600A2F644 /* AppDelegate.swift in Sources */,
 			);

@@ -28,7 +28,6 @@ class ViewController: NSViewController {
         var name = entryField.stringValue
         inputName.stringValue = "hey"
     }
-
     
 }
 
