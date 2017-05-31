@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let messageDB = Messages()
         
         // Do any additional setup after loading the view.
     }
