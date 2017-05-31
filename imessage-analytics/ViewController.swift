@@ -18,7 +18,10 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let messageDB = Messages()
+        
+        // THIS IS FOR TESTING PURPOSES AND IS REALLY BAD CODE
+        let messageDB = try! Messages()
+        try! entryField.stringValue = String(messageDB.getTotal())
         
         // Do any additional setup after loading the view.
     }
