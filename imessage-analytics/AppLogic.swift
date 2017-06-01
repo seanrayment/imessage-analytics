@@ -11,12 +11,10 @@ import Foundation
 
 class Conversation {
 // A class which will hold all of the details for a specific iMesage conversation with person (person)
-
+    
 //------------------//
 // Class Attributes //
 //------------------//
-    //var name = ViewController.getEntryField(<#T##ViewController#>)
-    
     var person: String = "Sean Rayment"
     // String of person's name in form <"first last"> eg. "Han Solo"
     
@@ -39,10 +37,10 @@ class Conversation {
     var length: Int = 0
     // The number of text messages in the conversation
     
-    var my_num: Int = 0
+    var my_prev: Int = 0
     //A dictionary with the prevalence of words as the values for me
     
-    var their_num: Int = 0
+    var their_prev: Int = 0
     //A dictionary with the prevalence of words as the values for them
     
     var my_pop = [["dog", 1],["cat", 0]]
@@ -52,6 +50,34 @@ class Conversation {
     var their_pop = [["dog", 0],["cat", 1]]
     // A list of lists with their words and their occurance
     
+//--------------------//
+// Class Initializing //
+//--------------------//
+    
+    init(person: String) {
+        self.person = person
+        // look at sean's database
+        // use self.person to extract only specific data for person
+        // let tempfile = specific data
+        // self.raw_text = tempfile
+        
+        // self.lower_raw_text = lowercase version of raw_text
+        
+        var temp_my_texts: [[String]] = []
+        var temp_their_texts: [[String]] = []
+        
+        for text in self.lower_raw_text{
+            if ("Me" == text[0]){
+                my_texts.insert(text, at: 0)
+            }
+            else{
+                their_texts.insert(text, at:0)
+            }
+        }
+        
+        self.my_texts = temp_my_texts
+        self.their_texts = temp_their_texts
+    }
 
 //-----------------//
 // Class Functions //
@@ -62,9 +88,7 @@ class Conversation {
         return self.person
     }
     
-//----------------------//
-// Assigning Attributes //
-//----------------------//
+    }
     
     
     //    func ImportSingleNameData(fileName: String) -> [String]? {
