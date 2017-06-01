@@ -19,6 +19,15 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // THIS IS FOR TESTING PURPOSES AND IS REALLY BAD CODE
+        let messageDB = try! Messages()
+        try! messageDB.getTotal()
+        try! messageDB.getTotalSent()
+        try! messageDB.getTotalReceived()
+        try! messageDB.getGroupCount()
+        try! messageDB.getConvoCount()
+        try! messageDB.getWordsSent()
+        
         // Do any additional setup after loading the view.
     }
     
