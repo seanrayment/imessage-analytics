@@ -17,6 +17,10 @@ import Contacts
  
  - Author: Sean Rayment
  
+ # TODO:
+ * handle group chats in sent and received
+ * make more efficient by saving values to memory and calling methods in init
+ 
  */
 class Messages {
     
@@ -32,6 +36,12 @@ class Messages {
     // message columns
     var messageID : Expression<Int64>
     var is_from_me : Expression<Int64>
+    var text : Expression<String?>
+    
+    // chat columns
+    var chatID : Expression<Int64>
+    var room_name : Expression<String?>
+    var chat_identifier : Expression<String>
     
     /**
      Errors when accessing database
@@ -69,6 +79,10 @@ class Messages {
                 // initializing columns
                 messageID = Expression<Int64>("ROWID")
                 is_from_me = Expression<Int64>("is_from_me")
+                chatID = Expression<Int64>("ROWID")
+                room_name = Expression<String?>("room_name")
+                chat_identifier = Expression<String>("chat_identifier")
+                text = Expression<String?>("text")
                 
             } catch  {
                 throw DatabaseError.couldNotLoad
@@ -123,7 +137,7 @@ class Messages {
     func getTotalReceived() throws -> Int {
         
         let recTable = message.select(messageID)
-            .filter(is_from_me == 0);
+                              .filter(is_from_me == 0)
         
         let recArray = Array(try db.prepare(recTable))
         
@@ -136,28 +150,73 @@ class Messages {
      gets the number of group chats that you are a part of
      - returns: Int, the number of group chats you are in
      */
+    func getGroupCount() throws -> Int {
+        
+        let convoTable = chat.filter(room_name != nil)
+        let convoArray = Array(try db.prepare(convoTable))
+        
+        print("TOTAL GROUP CHATS: \(convoArray.count)")
+        return convoArray.count
+    }
     
     
     /**
     gets the total number of conversations you are in
     - returns: Int, the total number of conversations
      */
+    func getConvoCount() throws -> Int {
+        
+        let convoTable = chat.filter(room_name == nil)
+        let convoArray = Array(try db.prepare(convoTable))
+        
+        print("TOTAL 1-on-1 CHATS: \(convoArray.count)")
+        return convoArray.count
+    }
     
     
     /**
      gets the total number of words you have sent
      - returns: Int, the total number of words sent
      */
+    func getWordsSent() throws -> Int {
+        var wordCount = 0
+        let messageTable = message.filter(text != nil).filter(is_from_me == 1)
+        let messageArray = Array(try db.prepare(messageTable))
+        
+        for item in messageArray { 
+            let wordArr = item[text]!.components(separatedBy: " ")
+            wordCount += wordArr.count
+        }
+        
+        print("TOTAL WORDS SENT: \(wordCount)")
+        return wordCount
+    }
     
     /**
      gets the total number of words you have received
      - returns: Int, the total number of words received
      */
+    func getWordsReceived() throws -> Int {
+        var wordCount = 0
+        let messageTable = message.filter(text != nil).filter(is_from_me == 0)
+        let messageArray = Array(try db.prepare(messageTable))
+        
+        for item in messageArray {
+            let wordArr = item[text]!.components(separatedBy: " ")
+            wordCount += wordArr.count
+        }
+        
+        print("TOTAL WORDS SENT: \(wordCount)")
+        return wordCount
+    }
     
     /**
      gets the average word length of your texts
      - returns: Int, the average text length
      */
+    func getAverageTextLength() throws -> Int {
+        return try! Int(getWordsSent() / getTotalSent())
+    }
     
     
     

@@ -23,6 +23,10 @@ class ViewController: NSViewController {
         let messageDB = try! Messages()
         try! messageDB.getTotal()
         try! messageDB.getTotalSent()
+        try! messageDB.getTotalReceived()
+        try! messageDB.getGroupCount()
+        try! messageDB.getConvoCount()
+        try! messageDB.getWordsSent()
         
         // Do any additional setup after loading the view.
     }
