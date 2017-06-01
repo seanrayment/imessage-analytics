@@ -21,7 +21,8 @@ class ViewController: NSViewController {
         
         // THIS IS FOR TESTING PURPOSES AND IS REALLY BAD CODE
         let messageDB = try! Messages()
-        try! entryField.stringValue = String(messageDB.getTotal())
+        try! messageDB.getTotal()
+        try! messageDB.getTotalSent()
         
         // Do any additional setup after loading the view.
     }
