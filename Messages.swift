@@ -92,10 +92,10 @@ class Messages {
         }
     }
     
-    //--------------------------//
-    // Conversation independent //
-    // calculations             //
-    //--------------------------//
+    //----------------------------------------//
+    // Conversation independent               //
+    // calculations                           //
+    //----------------------------------------//
     
     /**
      gets the total number of messages sent and received
@@ -217,6 +217,12 @@ class Messages {
     func getAverageTextLength() throws -> Int {
         return try! Int(getWordsSent() / getTotalSent())
     }
+    
+    //----------------------------------------//
+    // Conversation data to be                //
+    // tabulated elswhere                     //
+    //----------------------------------------//
+    
     
     
     
