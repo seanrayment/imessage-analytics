@@ -89,20 +89,14 @@ class Conversation {
     }
     
     }
-    
-    
-    //    func ImportSingleNameData(fileName: String) -> [String]? {
-    //         guard let path = Bundle.main.path(forResource: fileName, ofType: "txt")
-    //            print(path)
-    //            else {
-    //            return ["dog"]
-    //        }
-    //
-    //        do {
-    //            let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-    //            return content.components(separatedBy: "\n")
-    //        } catch {
-    //            return ["cat"]
-    //        }
-    //    }
+
+// Get relevant data funciton
+// --------------------------------------------------------------------
+// | Person Name | Group         | Date       | Time  | Message (Str) |
+// --------------------------------------------------------------------
+// | Sean        | One-On-One    | 02/27/1998 | 13:34 | "Hey buddy"   |
+// --------------------------------------------------------------------
+// | Lucas       | One-On-One    | 02/27/1998 | 14:34 | "Go away you" |
+// --------------------------------------------------------------------
+
     
