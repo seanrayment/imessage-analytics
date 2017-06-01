@@ -223,6 +223,15 @@ class Messages {
     // tabulated elswhere                     //
     //----------------------------------------//
     
+    
+    /**
+    gets the array of valid numbers that you have had conversations with
+     - returns: Array : Int, the array of valid numbers
+     */
+    func getValidNumbers() throws -> Array {
+        
+    }
+    
     // --------------------------------------------------------------------
     // | Person Name | Group         | Date       | Time  | Message (Str) |
     // --------------------------------------------------------------------
