@@ -224,9 +224,6 @@ class Messages {
     //----------------------------------------//
     
     
-    
-    
-    
     //  ALTERNATE METHOD TO LOAD IN DATABASE:
     
     /*
