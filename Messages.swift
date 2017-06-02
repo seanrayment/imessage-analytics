@@ -37,11 +37,14 @@ class Messages {
     var messageID : Expression<Int64>
     var is_from_me : Expression<Int64>
     var text : Expression<String?>
+    var date : Expression<Int64>
+    var handle_id : Expression<Int64>
     
     // chat columns
     var chatID : Expression<Int64>
     var room_name : Expression<String?>
     var chat_identifier : Expression<String>
+    var last_addressed_handle : Expression<String>
     
     /**
      Errors when accessing database
@@ -83,6 +86,12 @@ class Messages {
                 room_name = Expression<String?>("room_name")
                 chat_identifier = Expression<String>("chat_identifier")
                 text = Expression<String?>("text")
+                handleID = Expression<Int64>("ROWID")
+                handleNumber = Expression<String>("id")
+                date = Expression<Int64>("date")
+                last_addressed_handle = Expression<String>("last_addressed_handle")
+                handle_id = Expression<Int64>("handle_id")
+
                 
             } catch  {
                 throw DatabaseError.couldNotLoad
@@ -226,18 +235,43 @@ class Messages {
     
     /**
     gets the array of valid numbers that you have had conversations with
-     - returns: Array : Int, the array of valid numbers
+     - returns: Array : Row, the array of rows of valid id and number columns
      */
-    func getValidNumbers() throws -> Array<Int> {
-        
+
+    func getValidNumbers() throws -> Array<Row> {
+        let table = handle.select(handleID, handleNumber)
+        let handleArr = Array(try db.prepare(table))
+        return handleArr
+
     }
     
+    /**
+     gets all of the messages associated with a particular number
+     - parameters
+        - number : String, the string representing the number
+     - returns: Array : Row
+     */
+    func getMessagesFromNumber(number: String) throws -> Array<Row> {
+        let table = handle.select(handleID, handleNumber).filter(handleNumber == number)
+        let handleRow = try! db.pluck(table)
+        let the_handle : Int64! = (handleRow![handleID])
+        let messageTable = message.select(messageID, text, is_from_me, date)
+                                  .filter(handle_id == the_handle)
+        let messageArr = Array(try! db.prepare(messageTable))
+        return messageArr
+    }
+    
+    // This will be stored in a conversation object which will have properties of your
+    // own number and the number you are communicating with!
+    // Note: this is merely representational, the actual format of the array is an array
+    //       of database row, each row containing these columns
+    
     // --------------------------------------------------------------------
-    // | Person Name | Group         | Date       | Time  | Message (Str) |
+    // | messageID   | text          | is_from_me         | date           |
     // --------------------------------------------------------------------
-    // | Sean        | One-On-One    | 02/27/1998 | 13:34 | "Hey buddy"   |
+    // | 23          | "hi there"    | 1                  | 42349892       |
     // --------------------------------------------------------------------
-    // | Me          | One-On-One    | 02/27/1998 | 14:34 | "Go away you" |
+    // | 63          | "whats up"    | 0                  | 42349899       |
     // --------------------------------------------------------------------
     
     //  ALTERNATE METHOD TO LOAD IN DATABASE:
