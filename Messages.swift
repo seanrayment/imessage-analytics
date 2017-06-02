@@ -46,10 +46,6 @@ class Messages {
     var chat_identifier : Expression<String>
     var last_addressed_handle : Expression<String>
     
-    // handle columns
-    var handleID : Expression<Int64>
-    var handleNumber : Expression<String>
-    
     /**
      Errors when accessing database
      TODO: move to a separate file
@@ -95,6 +91,7 @@ class Messages {
                 date = Expression<Int64>("date")
                 last_addressed_handle = Expression<String>("last_addressed_handle")
                 handle_id = Expression<Int64>("handle_id")
+
                 
             } catch  {
                 throw DatabaseError.couldNotLoad
@@ -240,10 +237,12 @@ class Messages {
     gets the array of valid numbers that you have had conversations with
      - returns: Array : Row, the array of rows of valid id and number columns
      */
+
     func getValidNumbers() throws -> Array<Row> {
         let table = handle.select(handleID, handleNumber)
         let handleArr = Array(try db.prepare(table))
         return handleArr
+
     }
     
     /**
