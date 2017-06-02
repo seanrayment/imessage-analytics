@@ -11,17 +11,28 @@ import Foundation
 
 class Conversation {
     
-    var conversation:Array = ["Sean's input"]
+    var convo:Array = [["hey", "howdy"],["hows", "it going?"]]
     
     // Initialize //
     init(person: String) {
-        
+        // set convo to the message array for the person/phone number
     }
     
     // Funcitons //
     func LengthOfConversation() -> Int {
         var length: Int
+        length = convo.count
         return length
+    }
+    
+    func NumMyTexts() -> Int {
+        var num: Int = 0
+        for text in convo{
+            if text[0] == "Me"{
+             num += 1
+            }
+        }
+        return num
     }
     
     
