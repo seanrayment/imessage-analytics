@@ -41,7 +41,7 @@ class Conversation {
     
     func LengthOfConversation() -> Int {
         var length: Int
-        length = convo.count
+        length = self.convo.count
         return length
     }
     /**
@@ -51,7 +51,7 @@ class Conversation {
     
     func NumMyTexts() -> Int {
         var num: Int = 0
-        for text in convo{
+        for text in self.convo{
             if text[0] == "Me"{
              num += 1
             }
@@ -65,7 +65,7 @@ class Conversation {
     
     func NumTheirTexts() -> Int {
         var num: Int = 0
-        for text in convo{
+        for text in self.convo{
             if text[0] != "Me"{
                 num += 1
             }
@@ -79,7 +79,7 @@ class Conversation {
     
     func MyTotalWords() -> Int {
         var sum: Int = 0
-        for text in convo{
+        for text in self.convo{
             if text[0] == "Me" {
                 let wordArr = text[4].components(separatedBy: " ")
                 sum += wordArr.count
@@ -94,7 +94,7 @@ class Conversation {
     
     func TheirTotalWords() -> Int {
         var sum: Int = 0
-        for text in convo{
+        for text in self.convo{
             if text[0] != "Me" {
                 let wordArr = text[4].components(separatedBy: " ")
                 sum += wordArr.count
@@ -138,6 +138,24 @@ class Conversation {
      gets the participation of other in the conversation as a percentage
      - returns: Int, percentage of other's words as a whole of Conversation's words
      */
+    
+    func MyWordPopDictionary() -> [String: Int] {
+    var dic = [String: Int]()
+        for text in self.convo {
+            if text[0] == "Me"{
+                let textArr = text[4].components(separatedBy: " ")
+                for word in textArr {
+                    if word in dic {
+                        dic[word] += 1
+                    }
+                    else{
+                        dic[word] = 1
+                    }
+                }
+            }
+        }
+    return dic
+    }
         
         
         
