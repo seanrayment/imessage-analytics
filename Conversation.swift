@@ -35,6 +35,20 @@ class Conversation {
         return num
     }
     
+    func NumTheirTexts() -> Int {
+        var num: Int = 0
+        for text in convo{
+            if text[0] != "Me"{
+                num += 1
+            }
+        }
+        return num
+    }
+    
+    func MyAverageWordsPerText() -> Int {
+        
+    }
+    
     
     
 }
