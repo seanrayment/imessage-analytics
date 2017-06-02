@@ -11,7 +11,7 @@ import Foundation
 
 class Conversation {
     
-    var conversation = 
+    var conversation:Array = ["Sean's input"]
     
     // Initialize //
     init(person: String) {
@@ -20,7 +20,7 @@ class Conversation {
     
     // Funcitons //
     func LengthOfConversation() -> Int {
-        
+        var length: Int
         return length
     }
     
