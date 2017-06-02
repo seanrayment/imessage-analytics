@@ -43,6 +43,10 @@ class Messages {
     var room_name : Expression<String?>
     var chat_identifier : Expression<String>
     
+    // handle columns
+    var handleID : Expression<Int64>
+    var handleNumber : Expression<String>
+    
     /**
      Errors when accessing database
      TODO: move to a separate file
@@ -83,6 +87,8 @@ class Messages {
                 room_name = Expression<String?>("room_name")
                 chat_identifier = Expression<String>("chat_identifier")
                 text = Expression<String?>("text")
+                handleID = Expression<Int64>("ROWID")
+                handleNumber = Expression<String>("id")
                 
             } catch  {
                 throw DatabaseError.couldNotLoad
@@ -229,7 +235,9 @@ class Messages {
      - returns: Array : Int, the array of valid numbers
      */
     func getValidNumbers() throws -> Array<Int> {
-        
+        let table = handle.select(handleID, handleNumber)
+        let handleArr = Array(try db.prepare(table))
+        return handleArr
     }
     
     // --------------------------------------------------------------------
