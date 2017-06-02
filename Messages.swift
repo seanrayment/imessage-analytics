@@ -228,7 +228,7 @@ class Messages {
     gets the array of valid numbers that you have had conversations with
      - returns: Array : Int, the array of valid numbers
      */
-    func getValidNumbers() throws -> Array {
+    func getValidNumbers() throws -> Array<Int> {
         
     }
     
