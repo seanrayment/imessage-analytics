@@ -274,6 +274,9 @@ class Messages {
     // | 63          | "whats up"    | 0                  | 42349899       |
     // --------------------------------------------------------------------
     
+    // to get the value '23' out of this
+    // (arr[0])[messageID]
+    // arr[0] : Row
     //  ALTERNATE METHOD TO LOAD IN DATABASE:
     
     /*

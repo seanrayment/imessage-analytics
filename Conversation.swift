@@ -145,7 +145,7 @@ class Conversation {
             if text[0] == "Me"{
                 let textArr = text[4].components(separatedBy: " ")
                 for word in textArr {
-                    if word in dic {
+                    if (dict[word] != nul) {
                         dic[word] += 1
                     }
                     else{
