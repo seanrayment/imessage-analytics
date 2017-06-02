@@ -27,6 +27,7 @@ class ViewController: NSViewController {
         try! messageDB.getGroupCount()
         try! messageDB.getConvoCount()
         try! messageDB.getWordsSent()
+        try! messageDB.getValidNumbers()
         
         // Do any additional setup after loading the view.
     }
