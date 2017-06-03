@@ -46,6 +46,10 @@ class Messages {
     var chat_identifier : Expression<String>
     var last_addressed_handle : Expression<String>
     
+    // handle columns
+    var handleID : Expression<Int64>
+    var handleNumber : Expression<String>
+    
     /**
      Errors when accessing database
      TODO: move to a separate file

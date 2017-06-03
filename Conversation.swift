@@ -139,6 +139,9 @@ class Conversation {
      - returns: Int, percentage of other's words as a whole of Conversation's words
      */
     
+    
+    /*
+ 
     func MyWordPopDictionary() -> [String: Int] {
     var dic = [String: Int]()
         for text in self.convo {
@@ -156,8 +159,8 @@ class Conversation {
         }
     return dic
     }
-        
-        
+    
+    */
         
         
         
