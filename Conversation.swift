@@ -120,7 +120,7 @@ class Conversation {
      gets the total number of texts sent by user in this Conversation
      - returns: Int, the total numer of texts sent by user
      */
-    func NumMyTexts() -> Int {
+    func numTextsSent() -> Int {
       return self.myMessagesArr.count
     }
 
@@ -128,15 +128,17 @@ class Conversation {
      gets the total number of texts sent by others in this Conversation
      - returns: Int, the total numer of texts sent by others
      */
-    func NumTheirTexts() -> Int {
+    func numTextsReceived() -> Int {
        return self.theirMessagesArr.count
     }
+    
+    var sentWords : Int?
     
     /**
      gets the total number of words sent by user in Coversation throughout all texts
      - returns: Int, the total number of words sent by user
      */
-    func MyTotalWords() -> Int {
+    func numWordsSent() -> Int {
         var count = 0
         for row in myMessagesArr {
             if (row[text] == nil) {
@@ -146,6 +148,7 @@ class Conversation {
             }
             
         }
+        sentWords = count
         return count
     }
     
@@ -153,7 +156,7 @@ class Conversation {
      gets the total number of words sent by others in Coversation throughout all texts
      - returns: Int, the total number of words sent by others
      */
-    func TheirTotalWords() -> Int {
+    func numWordsReceived() -> Int {
         var count = 0
         for row in theirMessagesArr {
             if (row[text] == nil) {
@@ -163,17 +166,22 @@ class Conversation {
             }
             
         }
+        
         return count
     }
-
     
-//    func MyAverageWordsPerText() -> Double {
-//        return Double(self.MyTotalWords()) / Double(self.NumMyTexts())
-//    }
-//    /**
-//     gets the average number of words user sent per text message in Conversation
-//     - returns: Int, the average number of words per user text
-//     */
+    /**
+     gets the average number of words user sent per text message in Conversation
+     - returns: Int, the average number of words per user text
+     */
+    func MyAverageWordsPerText() -> Double {
+        if (self.sentWords == nil) {
+            return Double(self.numWordsSent()) / Double(self.numTextsSent())
+        } else {
+            return Double(self.sentWords! / self.numTextsSent())
+        }
+    }
+   
 //    
 //    func TheirAverageWordsPerText() -> Double {
 //        return Double(self.TheirTotalWords()) / Double(self.NumTheirTexts())
