@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "imessage-analytics/ViewController.swift"
-            timestampString = "518066303.21405"
+            timestampString = "518207446.783638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "entryButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

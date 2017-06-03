@@ -117,7 +117,6 @@ class Messages {
     func getTotal() throws -> Int {
         
         let max = try db.scalar(message.select(messageID.max))
-        print("TOTAL MESSAGES: \(max)")
         return Int(max!)
     }
     
@@ -241,13 +240,26 @@ class Messages {
     gets the array of valid numbers that you have had conversations with
      - returns: Array : Row, the array of rows of valid id and number columns
      */
-
-    func getValidNumbers() throws -> Array<Row> {
+    func getValidNumbers() throws -> Array<String> {
         let table = handle.select(handleID, handleNumber)
         let handleArr = Array(try db.prepare(table))
-        return handleArr
-
+        var numbers = Array(repeating: "", count: handleArr.count)
+        var i = 0
+        for row in handleArr {
+            numbers[i] = row[handleNumber]
+            i += 1
+        }
+        return numbers
     }
+    
+    /**
+     gets the user's number
+    */
+    func getYourNumber() throws -> String {
+        let row = try! db.pluck(chat)
+        return row![last_addressed_handle]
+    }
+    
     
     /**
      gets all of the messages associated with a particular number
@@ -255,32 +267,16 @@ class Messages {
         - number : String, the string representing the number
      - returns: Array : Row
      */
-    func getMessagesFromNumber(number: String) throws -> Array<Row> {
+    func getMessagesFromNumber(number: String) throws -> Table {
         let table = handle.select(handleID, handleNumber).filter(handleNumber == number)
         let handleRow = try! db.pluck(table)
         let the_handle : Int64! = (handleRow![handleID])
         let messageTable = message.select(messageID, text, is_from_me, date)
                                   .filter(handle_id == the_handle)
-        let messageArr = Array(try! db.prepare(messageTable))
-        return messageArr
+        //let messageArr = Array(try! db.prepare(messageTable))
+        //return messageArr
+        return messageTable
     }
-    
-    // This will be stored in a conversation object which will have properties of your
-    // own number and the number you are communicating with!
-    // Note: this is merely representational, the actual format of the array is an array
-    //       of database row, each row containing these columns
-    
-    // --------------------------------------------------------------------
-    // | messageID   | text          | is_from_me         | date           |
-    // --------------------------------------------------------------------
-    // | 23          | "hi there"    | 1                  | 42349892       |
-    // --------------------------------------------------------------------
-    // | 63          | "whats up"    | 0                  | 42349899       |
-    // --------------------------------------------------------------------
-    
-    // to get the value '23' out of this
-    // (arr[0])[messageID]
-    // arr[0] : Row
     
     //  ALTERNATE METHOD TO LOAD IN DATABASE:
     

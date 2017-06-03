@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SQLite
 
 class ViewController: NSViewController {
     @IBOutlet weak var entryField: NSTextField!
@@ -21,13 +22,18 @@ class ViewController: NSViewController {
         
         // THIS IS FOR TESTING PURPOSES AND IS REALLY BAD CODE
         let messageDB = try! Messages()
-        try! messageDB.getTotal()
-        try! messageDB.getTotalSent()
-        try! messageDB.getTotalReceived()
-        try! messageDB.getGroupCount()
-        try! messageDB.getConvoCount()
-        try! messageDB.getWordsSent()
-        try! messageDB.getValidNumbers()
+//        try! messageDB.getTotal()
+//        try! messageDB.getTotalSent()
+//        try! messageDB.getTotalReceived()
+//        try! messageDB.getGroupCount()
+//        try! messageDB.getConvoCount()
+//        try! messageDB.getWordsSent()
+//        try! messageDB.getValidNumbers()
+        for number in try! messageDB.getValidNumbers() {
+            print(number)
+        }
+        
+        
         
         // Do any additional setup after loading the view.
     }

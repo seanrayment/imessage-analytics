@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F16FD0F1EDE64DD0057D769 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F16FD0E1EDE64DD0057D769 /* Messages.swift */; };
 		2F3BE2991ED8D9BB00D1D0F8 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BE2981ED8D9BB00D1D0F8 /* ResultController.swift */; };
+		2F423D841EE3292600EDAA06 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F423D831EE3292600EDAA06 /* Contact.swift */; };
 		2F76D8DB1ED7808600A2F644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F76D8DA1ED7808600A2F644 /* AppDelegate.swift */; };
 		2F76D8DD1ED7808600A2F644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F76D8DC1ED7808600A2F644 /* ViewController.swift */; };
 		2F76D8DF1ED7808600A2F644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F76D8DE1ED7808600A2F644 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		2F16FD0E1EDE64DD0057D769 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Messages.swift; path = ../Messages.swift; sourceTree = "<group>"; };
 		2F3BE2981ED8D9BB00D1D0F8 /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
+		2F423D831EE3292600EDAA06 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		2F76D8D71ED7808600A2F644 /* imessage-analytics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "imessage-analytics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F76D8DA1ED7808600A2F644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F76D8DC1ED7808600A2F644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				DEC651661EE1075F00C57EA9 /* Conversation.swift */,
 				2F16FD0E1EDE64DD0057D769 /* Messages.swift */,
+				2F423D831EE3292600EDAA06 /* Contact.swift */,
 				2F76D8DA1ED7808600A2F644 /* AppDelegate.swift */,
 				DE7B1C231ED86D81008DAACB /* AppLogic.swift */,
 				2F76D8DC1ED7808600A2F644 /* ViewController.swift */,
@@ -185,6 +188,7 @@
 				2F16FD0F1EDE64DD0057D769 /* Messages.swift in Sources */,
 				2F76D8DD1ED7808600A2F644 /* ViewController.swift in Sources */,
 				2F76D8DB1ED7808600A2F644 /* AppDelegate.swift in Sources */,
+				2F423D841EE3292600EDAA06 /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
