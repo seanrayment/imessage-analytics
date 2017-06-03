@@ -29,6 +29,7 @@ class ViewController: NSViewController {
 //        try! messageDB.getConvoCount()
 //        try! messageDB.getWordsSent()
 //        try! messageDB.getValidNumbers()
+        
         for number in try! messageDB.getValidNumbers() {
             print(number)
         }

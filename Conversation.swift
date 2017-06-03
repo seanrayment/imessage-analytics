@@ -13,7 +13,11 @@ import SQLite
 class Conversation {
     
     var convo : Table
-    var rowArr : [Row]
+    var convoArray : [Row]
+    var myMessages : Table
+    var theirMessages : Table
+    var myMessagesArr : [Row]
+    var theirMessagesArr : [Row]
     var yourNumber : String
     var theirNumber : String
     var db : Connection
@@ -54,14 +58,20 @@ class Conversation {
     // --------------------------------------------------------------------
 
     
-    //------------//
-    // Initialize //
-    //------------//
+    /**
+     Initializer for Conversation. Sets properties and the database
+     tables and columns
+     - parameters:
+        - convo : the Table of relevant conversations
+        - yourNumber : String, user phone number
+        - theirNumber : String, other persons's number
+        - db : Connection, a connection to the chat.db database
+     */
     init(convo : Table, yourNumber : String, theirNumber : String, db : Connection) {
         // set convo to the message array for the person/phone number
         self.convo = convo
         self.db = db
-        self.rowArr = Array(try! db.prepare(convo))
+        self.convoArray = Array(try! db.prepare(convo))
         self.yourNumber = yourNumber
         self.theirNumber = theirNumber
         
@@ -84,72 +94,79 @@ class Conversation {
         date = Expression<Int64>("date")
         last_addressed_handle = Expression<String>("last_addressed_handle")
         handle_id = Expression<Int64>("handle_id")
+        
+        // initializing individual tables and arrays
+        self.myMessages = self.convo.filter(is_from_me == 1)
+        self.theirMessages = self.convo.filter(is_from_me == 0)
+        self.myMessagesArr = Array(try! db.prepare(myMessages))
+        self.theirMessagesArr = Array(try! db.prepare(theirMessages))
     }
     
     
     //-----------//
-    // Funcitons //
+    // Methods   //
     //-----------//
     
-    func lengthOfConversation() -> Int {
-        return self.rowArr.count
-    }
     
     /**
      gets the total number of texts for this Conversation
      - returns: Int, the total numer of texts
      */
-    
-    func NumMyTexts() -> Int {
-        let meConvo = self.convo.filter(is_from_me == 1)
-        let meArray = Array(try! db.prepare(meConvo))
-        return meArray.count
+    func lengthOfConversation() -> Int {
+        return self.convoArray.count
     }
+    
     /**
      gets the total number of texts sent by user in this Conversation
      - returns: Int, the total numer of texts sent by user
      */
-//    
-//    func NumTheirTexts() -> Int {
-//        let themConvo = self.convo.filter(is_from_me == 0)
-//        let themArray = Array(try! db.prepare(meConvo))
-//        return themArray.count
-//    }
-//    /**
-//     gets the total number of texts sent by others in this Conversation
-//     - returns: Int, the total numer of texts sent by others
-//     */
-//    
-//    func MyTotalWords() -> Int {
-//        var sum: Int = 0
-//        for text in self.convo{
-//            if text[0] == "Me" {
-//                let wordArr = text[4].components(separatedBy: " ")
-//                sum += wordArr.count
-//            }
-//        }
-//        return sum
-//    }
-//    /**
-//     gets the total number of words sent by user in Coversation throughout all texts
-//     - returns: Int, the total number of words sent by user
-//     */
-//    
-//    func TheirTotalWords() -> Int {
-//        var sum: Int = 0
-//        for text in self.convo{
-//            if text[0] != "Me" {
-//                let wordArr = text[4].components(separatedBy: " ")
-//                sum += wordArr.count
-//            }
-//        }
-//        return sum
-//    }
-//    /**
-//     gets the total number of words sent by others in Coversation throughout all texts
-//     - returns: Int, the total number of words sent by others
-//     */
-//    
+    func NumMyTexts() -> Int {
+      return self.myMessagesArr.count
+    }
+
+    /**
+     gets the total number of texts sent by others in this Conversation
+     - returns: Int, the total numer of texts sent by others
+     */
+    func NumTheirTexts() -> Int {
+       return self.theirMessagesArr.count
+    }
+    
+    /**
+     gets the total number of words sent by user in Coversation throughout all texts
+     - returns: Int, the total number of words sent by user
+     */
+    func MyTotalWords() -> Int {
+        var count = 0
+        for row in myMessagesArr {
+            if (row[text] == nil) {
+                count += 0
+            } else {
+                count += row[text]!.components(separatedBy: " ").count
+            }
+            
+        }
+        return count
+    }
+    
+    /**
+     gets the total number of words sent by others in Coversation throughout all texts
+     - returns: Int, the total number of words sent by others
+     */
+    func TheirTotalWords() -> Int {
+        var count = 0
+        for row in theirMessagesArr {
+            if (row[text] == nil) {
+                count += 0
+            } else {
+                count += row[text]!.components(separatedBy: " ").count
+            }
+            
+        }
+        return count
+    }
+
+    
 //    func MyAverageWordsPerText() -> Double {
 //        return Double(self.MyTotalWords()) / Double(self.NumMyTexts())
 //    }

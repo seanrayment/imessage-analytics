@@ -15,7 +15,7 @@ import Contacts
  
  Class for loading the chat.db SQLite database
  
- - Author: Sean Rayment
+ - Author: Sean Rayment and Lucas Jurgensen
  
  # TODO:
  * handle group chats in sent and received
@@ -278,7 +278,10 @@ class Messages {
         return messageTable
     }
     
-    //  ALTERNATE METHOD TO LOAD IN DATABASE:
+    //----------------------------------------//
+    // Alternate method of loading            //
+    // the database                           //
+    //----------------------------------------//
     
     /*
      let fileManager = FileManager.default
