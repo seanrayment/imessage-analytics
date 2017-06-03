@@ -277,6 +277,7 @@ class Messages {
     // to get the value '23' out of this
     // (arr[0])[messageID]
     // arr[0] : Row
+    
     //  ALTERNATE METHOD TO LOAD IN DATABASE:
     
     /*
