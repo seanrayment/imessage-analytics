@@ -133,6 +133,7 @@ class Conversation {
     }
     
     var sentWords : Int?
+    var receivedWords : Int?
     
     /**
      gets the total number of words sent by user in Coversation throughout all texts
@@ -167,6 +168,7 @@ class Conversation {
             
         }
         
+        receivedWords = count
         return count
     }
     
@@ -182,59 +184,45 @@ class Conversation {
         }
     }
    
-//    
-//    func TheirAverageWordsPerText() -> Double {
-//        return Double(self.TheirTotalWords()) / Double(self.NumTheirTexts())
-//    }
-//    /**
-//     gets the average number of words other sent per text message in Conversation
-//     - returns: Int, the average number of words per other's text
-//     */
-//    
-//    func MyParticipation() -> Double {
-//        return 100 * Double(self.MyTotalWords()) / (Double(self.MyTotalWords()) + Double(self.TheirTotalWords()))
-//    }
-//    /**
-//     gets the participation of user in the conversation as a percentage
-//     - returns: Int, percentage of user's words as a whole of Conversation's words
-//     */
-//    
-//    func TheirParticipation() -> Double {
-//        return 100 * Double(self.TheirTotalWords()) / (Double(self.MyTotalWords()) + Double(self.TheirTotalWords()))
-//    }
-//    /**
-//     gets the participation of other in the conversation as a percentage
-//     - returns: Int, percentage of other's words as a whole of Conversation's words
-//     */
-//    
-//    
-//    /*
-// 
-//    func MyWordPopDictionary() -> [String: Int] {
-//    var dic = [String: Int]()
-//        for text in self.convo {
-//            if text[0] == "Me"{
-//                let textArr = text[4].components(separatedBy: " ")
-//                for word in textArr {
-//                    if (dict[word] != nul) {
-//                        dic[word] += 1
-//                    }
-//                    else{
-//                        dic[word] = 1
-//                    }
-//                }
-//            }
-//        }
-//    return dic
-//    }
-//    
-//    */
-//        
-//        
-//        
-//        
-//    }
-//    
-//}
+
+    /**
+     gets the average number of words other sent per text message in Conversation
+     - returns: Int, the average number of words per other's text
+     */
+    func TheirAverageWordsPerText() -> Double {
+        if (self.sentWords == nil) {
+            return Double(self.numWordsReceived()) / Double(self.numTextsReceived())
+        } else {
+            return Double(self.receivedWords! / self.numTextsReceived())
+        }
+    }
+  
+    
+    /**
+     gets the participation of user in the conversation as a percentage
+     - returns: Int, percentage of user's words as a whole of Conversation's words
+     */
+    func MyParticipation() -> Double {
+        
+        let sWords = self.sentWords == nil ? self.numWordsSent() : self.sentWords!
+        let rWords = self.receivedWords == nil ? self.numWordsReceived() : self.receivedWords!
+        
+        return 100 * Double(sWords) / (Double(rWords + sWords))
+
+    }
+   
+  
+    /**
+     gets the participation of other in the conversation as a percentage
+     - returns: Int, percentage of other's words as a whole of Conversation's words
+     - note: This will not work with group chats
+     */
+    func TheirParticipation() -> Double {
+        
+        let sWords = self.sentWords == nil ? self.numWordsSent() : self.sentWords!
+        let rWords = self.receivedWords == nil ? self.numWordsReceived() : self.receivedWords!
+        
+        return 100 * Double(rWords) / (Double(rWords + sWords))    }
+
 
 }
