@@ -10,13 +10,9 @@ import Cocoa
 
 class ResultController : NSViewController {
     
-    @IBOutlet weak var resultLabel: NSTextField!
-    
-    var labelText = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.stringValue = labelText
     }
     
     
