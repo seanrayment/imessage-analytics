@@ -725,31 +725,6 @@
                     <view key="view" id="tO6-7C-mhD" userLabel="textResult">
                         <rect key="frame" x="0.0" y="0.0" width="674" height="551"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <scrollView wantsLayer="YES" fixedFrame="YES" borderType="line" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON3-Uw-piy">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="551"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="LPL-rZ-deT">
-                                    <rect key="frame" x="1" y="1" width="238" height="549"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <ruleEditor ambiguous="YES" nestingMode="compound" canRemoveAllRows="YES" rowHeight="25" id="LKX-7S-quo">
-                                            <rect key="frame" x="0.0" y="-0.5" width="238" height="549"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </ruleEditor>
-                                    </subviews>
-                                    <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Z3U-SY-DiG">
-                                    <rect key="frame" x="-100" y="-100" width="223" height="15"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="c08-XE-K9r">
-                                    <rect key="frame" x="223" y="1" width="16" height="490"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                        </subviews>
                     </view>
                 </viewController>
                 <customObject id="21n-Mw-9Xy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

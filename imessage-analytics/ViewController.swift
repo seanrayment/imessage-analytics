@@ -28,7 +28,6 @@ class ViewController: NSViewController {
         }
         
         
-        
         // Do any additional setup after loading the view.
     }
     
